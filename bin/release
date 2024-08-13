@@ -2,5 +2,5 @@
 cat <<EOF
 ---
 default_process_types:
-  web: ls -larth ./src && ./bin/mdbook serve --open false --hostname 0.0.0.0 --port $PORT .
+  web: echo $PWD && ls -larth /home/vcap/app/false/src && ls -larth ./src && ./bin/mdbook serve --open false --hostname 0.0.0.0 --port $PORT .
 EOF
