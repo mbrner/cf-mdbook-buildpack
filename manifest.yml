@@ -1,0 +1,5 @@
+---
+language: rust
+default_versions:
+  - name: rust
+    version: 1.56.0

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+DEPS_DIR=$3
+INDEX=$4
+
+# Set environment variables or perform other final setup tasks
+export PATH=$DEPS_DIR/$INDEX/bin:$PATH
+
+echo "mdbook installed and configured."

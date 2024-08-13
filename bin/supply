@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+DEPS_DIR=$3
+INDEX=$4
+
+# Install Rust using rustup
+export RUSTUP_HOME=$CACHE_DIR/rustup
+export CARGO_HOME=$CACHE_DIR/cargo
+
+if [ ! -d "$RUSTUP_HOME" ]; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+else
+    echo "Using cached rustup installation"
+fi
+
+export PATH=$CARGO_HOME/bin:$PATH
+
+# Install mdbook with the specified features
+cargo install mdbook --no-default-features --features serve,search --vers "^0.4" --locked
+
+# Ensure the mdbook binary is in the correct place
+mkdir -p $BUILD_DIR/bin
+cp $CARGO_HOME/bin/mdbook $BUILD_DIR/bin/
+
+echo "mdbook installed successfully"

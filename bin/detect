@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Check for the presence of a Cargo.toml file
+if [ -f "Cargo.toml" ]; then
+  echo "Rust project detected"
+  exit 0
+else
+  echo "No Rust project found"
+  exit 1
+fi
