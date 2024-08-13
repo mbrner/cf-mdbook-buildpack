@@ -2,5 +2,5 @@
 cat <<EOF
 ---
 default_process_types:
-  web: ls -larth /home/vcap/ && ls -larth /home/vcap/app/ && ./bin/mdbook serve --port 80
+  web: ls -larth /home/vcap/ && ls -larth /home/vcap/app/ && ./bin/mdbook serve --port 8080 --hostname 0.0.0.0
 EOF
