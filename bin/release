@@ -2,5 +2,5 @@
 cat <<EOF
 ---
 default_process_types:
-  web: ls -larth && pwd && ./bin/mdbook serve --open false --hostname 0.0.0.0 --port $PORT --dir .
+  web: ls -larth ./src && ./bin/mdbook serve --open false --hostname 0.0.0.0 --port $PORT .
 EOF
